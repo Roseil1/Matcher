@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const sound67 = new Audio('./Sounds/6-7_Sound.mp3');
   const jumpscareSounds = [
-    new Audio('./Sounds/jumpscare1_Sound.m4a'),
-    new Audio('./Sounds/jumpscare2_Sound.m4a'),
+    new Audio('./Sounds/Jumpscare1_Sound.m4a'),
+    new Audio('./Sounds/Jumpscare2_Sound.m4a'),
   ];
   const backgroundMusic = new Audio('./Sounds/background music.m4a');
 
