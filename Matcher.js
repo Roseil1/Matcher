@@ -10,12 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const deck = pairs.flat();
 
-  const sound67 = new Audio('./sounds/6-7_Sound.mp3');
+  const sound67 = new Audio('./Sounds/6-7_Sound.mp3');
   const jumpscareSounds = [
-    new Audio('./sounds/jumpscare1_Sound.m4a'),
-    new Audio('./sounds/jumpscare2_Sound.m4a'),
+    new Audio('./Sounds/jumpscare1_Sound.m4a'),
+    new Audio('./Sounds/jumpscare2_Sound.m4a'),
   ];
-  const backgroundMusic = new Audio('./sounds/background music.m4a');
+  const backgroundMusic = new Audio('./Sounds/background music.m4a');
 
   backgroundMusic.volume = 0.5;
   jumpscareSounds[0].volume = 0.5;
