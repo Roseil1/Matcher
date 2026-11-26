@@ -33,6 +33,59 @@ document.addEventListener('DOMContentLoaded', () => {
   let firstCard = null;
   let lockBoard = false;
 
+const timeDisplay = document.getElementById('time');
+  const bestAttemptsDisplay = document.getElementById('bestAttempts');
+  const bestTimeDisplay = document.getElementById('bestTime');
+
+  let startTime = null;
+  let timer = null;
+
+  // Returns the saved number, or null if there isn't one
+  function loadRecord(key) {
+    const value = localStorage.getItem(key);
+    return value === null ? null : Number(value);
+  }
+
+  // Saves only if it's the first score or a lower one
+  function saveIfBetter(key, value) {
+    const best = loadRecord(key);
+    if (best === null || value < best) {
+      localStorage.setItem(key, value);
+    }
+  }
+
+  function showRecords() {
+    const bestAttempts = loadRecord('matcherBestAttempts');
+    const bestTime = loadRecord('matcherBestTime');
+  
+    bestAttemptsDisplay.textContent = bestAttempts ?? '-';
+    bestTimeDisplay.textContent =
+      bestTime === null ? '-' : bestTime.toFixed(1) + 's';
+  }
+
+  function startTimer() {
+    startTime = Date.now();
+    timer = setInterval(() => {
+      timeDisplay.textContent = ((Date.now() - startTime) / 1000).toFixed(1);
+    }, 100);
+  }
+
+  function finishGame() {
+    const finalTime = (Date.now() - startTime) / 1000;
+    clearInterval(timer);
+    timeDisplay.textContent = finalTime.toFixed(1);
+
+    saveIfBetter('matcherBestAttempts', attempts);
+    saveIfBetter('matcherBestTime', finalTime);
+    showRecords();
+  }
+
+  showRecords();
+
+  document.getElementById('resetBtn').addEventListener('click', () => {
+  location.reload();
+  });
+  
   attemptsDisplay.textContent = attempts;
   winMessage.style.display = 'none';
 
@@ -87,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ) {
       return;
     }
-
+    if (startTime === null) startTimer();
     card.classList.add('revealed');
     card.textContent = card.dataset.emoji;
 
