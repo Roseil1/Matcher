@@ -168,6 +168,7 @@ const timeDisplay = document.getElementById('time');
 
       if (matchedPairs === pairs.length) {
         winMessage.style.display = 'block';
+        finishGame();
       }
 
       resetTurn();
