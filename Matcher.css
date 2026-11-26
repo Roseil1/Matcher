@@ -45,11 +45,31 @@ body {
     font-weight: 600;
     color: var(--primary);
 }
-
+.stats {
+    color: var(--primary);
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
 .attempts {
     font-size: 1.3rem;
     margin-bottom: 25px;
     color: var(--primary);
+}
+
+.reset-btn {
+    margin-top: 15px;
+    padding: 12px 24px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-family: var(--font);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.reset-btn:hover {
+    background-color: var(--accent);
 }
 
 .sound-note {
