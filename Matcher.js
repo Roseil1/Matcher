@@ -18,8 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const backgroundMusic = new Audio('./Sounds/background music.m4a');
 
   backgroundMusic.volume = 0.5;
-  jumpscareSounds[0].volume = 0.5;
-  jumpscareSounds[1].volume = 1.0;
+  sound67.volume = 0.4;
+  jumpscareSounds[0].volume = 0.4;
+  jumpscareSounds[1].volume = 0.4;
   backgroundMusic.loop = true;
 
   const soundEffects = [sound67, ...jumpscareSounds];
